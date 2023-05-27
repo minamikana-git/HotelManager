@@ -1,0 +1,5 @@
+name: HotelManagement
+version: '${project.version}'
+main: work.utakatanet.hotelmanagement.HotelManagement
+api-version: 1.19
+load:
