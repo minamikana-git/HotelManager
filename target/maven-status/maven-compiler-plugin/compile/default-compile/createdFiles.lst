@@ -1,0 +1,6 @@
+work\utakatanet\hotelmanagement\onCommand.class
+work\utakatanet\hotelmanagement\command\CommandHandler.class
+work\utakatanet\hotelmanagement\command\HotelsCommand.class
+work\utakatanet\hotelmanagement\util\HotelReservation.class
+work\utakatanet\hotelmanagement\HotelManager.class
+work\utakatanet\hotelmanagement\util\Message.class

@@ -29,12 +29,61 @@ public class HotelsCommand {
                             // ここから処理をどうぞー(消しておいてください)
                         })
                 )
-                .withSubcommand(new CommandAPICommand("hotel")
-                        .withArguments(new StringArgument("hotelName"))
+                .withSubcommand(new CommandAPICommand("hotel") // /hotels "hotel" サブコマンドを登録
+
+                        // /hotels hotel "npc" サブコマンド
+                        .withSubcommand(new CommandAPICommand("npc")
+                                .withSubcommand(new CommandAPICommand("create")
+                                        .executesPlayer((player, args) -> { // /hotels npc create
+
+                                            if (args.args().length < 1) {
+                                                player.sendMessage(Message.prefix + "" + Message.errorNotEnoughArguments);
+                                                return;
+
+                                            }
+                                        })
+                                )
+                        )
+
+                        // /hotels hotel "remove" サブコマンド
+                        .withSubcommand(new CommandAPICommand("remove")
+                            .executesPlayer((player, args) -> { // /hotels remove
+                                        if (args.args().length < 1) {
+                                            player.sendMessage(Message.prefix + "" + Message.errorNotEnoughArguments);
+                                            return;
+                                        }
+                            })
+                        )
+
+                        // /hotels hotel "list" サブコマンド
+                        .withSubcommand(new CommandAPICommand("list")
+                                .executesPlayer((player, commandArguments) -> { // /hotels hotel list
+                                    if  (args.args().length < 1) {
+                                        player.sendMessage(Message.prefix + "" + Message.errorNotEnoughArguments);
+                                        return;
+                                    }
+
+
+                                })
+                        )
+                        // /hotels hotel "info" サブコマンド
+                        .withSubcommand(new CommandAPICommand("info")
+                                .executesPlayer((player, commandArguments) -> { // /hotels hotel info
+                                    if  (args.args().length < 1) {
+                                        player.sendMessage(Message.prefix + "" + Message.errorNotEnoughArguments);
+                                        return;
+                                    }
                 )
+                       // /hotels hotel "room create" サブコマンド
+                        .withSubcommand(new CommandAPICommand("list")
+                              .executesPlayer((player, commandArguments) -> { // /hotels hotel list
+                                  if  (args.args().length < 1) {
+                                        player.sendMessage(Message.prefix + "" + Message.errorNotEnoughArguments);
+                                        return;
+                                  }
                 .register();
 
 
-    }
+
 
 }
