@@ -10,6 +10,7 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
+import work.utakatanet.hotelmanagement.command.CommandHandler;
 
 public class HotelManager extends JavaPlugin implements Listener {
     private Inventory checkInGUI;
@@ -23,6 +24,9 @@ public class HotelManager extends JavaPlugin implements Listener {
 
         // CommandAPI
         CommandAPI.onEnable();
+
+        // コマンド登録
+        CommandHandler.registerCommands();
     }
 
     @Override
