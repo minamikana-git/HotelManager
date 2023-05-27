@@ -1,4 +1,4 @@
-name: HotelManagement
+name: HotelManager
 version: '${project.version}'
 main: work.utakatanet.hotelmanagement.HotelManagement
 api-version: 1.19
