@@ -61,6 +61,10 @@
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
         </repository>
+        <repository>
+            <id>xenondevs</id>
+            <url>https://repo.xenondevs.xyz/releases</url>
+        </repository>
     </repositories>
 
     <dependencies>
@@ -71,11 +75,27 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-        <groupId>work.utakatanet</groupId>
-        <artifactId>EconomyUtilsAPI</artifactId>
-        <version>1.0.1</version>
-        <scope>system</scope>
-        <systemPath>${basedir}/lib/EconomyUtilsAPI-1.0.1-all.jar</systemPath>
-    </dependency>
+            <groupId>work.utakatanet</groupId>
+            <artifactId>EconomyUtilsAPI</artifactId>
+            <version>1.0.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/EconomyUtilsAPI-1.0.1-all.jar</systemPath>
+        </dependency>
+
+        <!-- CommandAPI -->
+        <dependency>
+            <groupId>dev.jorel</groupId>
+            <artifactId>commandapi-bukkit-core</artifactId>
+            <version>9.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- InvUI -->
+        <dependency>
+            <groupId>xyz.xenondevs.invui</groupId>
+            <artifactId>invui</artifactId>
+            <version>1.5</version>
+            <type>pom</type>
+        </dependency>
     </dependencies>
 </project>

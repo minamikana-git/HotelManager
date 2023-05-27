@@ -1,5 +1,7 @@
 package work.utakatanet.hotelmanagement;
 
+import dev.jorel.commandapi.CommandAPI;
+import dev.jorel.commandapi.CommandAPIConfig;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -21,6 +23,9 @@ public class HotelManagement extends JavaPlugin implements Listener {
         // プラグインの初期化処理
         initializeGUIs();
         getServer().getPluginManager().registerEvents(this, this);
+
+        // CommandAPI
+        CommandAPI.onEnable();
     }
 
     @Override
