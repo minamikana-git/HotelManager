@@ -1,1 +1,1 @@
-# HotelManagementdev
+# HotelManagement
