@@ -57,8 +57,8 @@ public class HotelsCommand {
 
                         // /hotels hotel "list" サブコマンド
                         .withSubcommand(new CommandAPICommand("list")
-                                .executesPlayer((player, commandArguments) -> { // /hotels hotel list
-                                    if  (args.args().length < 1) {
+                                .executesPlayer((player, args) -> { // /hotels hotel list
+                                    if (args.args().length < 1) {
                                         player.sendMessage(Message.prefix + "" + Message.errorNotEnoughArguments);
                                         return;
                                     }
