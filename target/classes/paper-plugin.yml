@@ -3,11 +3,4 @@ version: '1.0'
 main: work.utakatanet.hotelmanagement.HotelManager
 api-version: 1.19
 load: STARTUP
-COMMAND:
-  hotels create {ホテル名} // ホテル作成コマンド
-  hotels {ホテル名} room create // ホテル内のルーム作成コマンド
-  hotels list // ホテル一覧
-  hotels {ホテル名} info // ホテル情報
-  hotels npc create // エントランスのNPCを作成する
-  hotels remove {ホテル名} // ホテルの削除
-  hotels {ホテル名} list // ホテルのルーム一覧
+
