@@ -3,6 +3,8 @@ package work.utakatanet.hotelmanagement;
 import dev.jorel.commandapi.CommandAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -72,4 +74,35 @@ public class HotelManager extends JavaPlugin implements Listener {
         }
     }
 
+
+    private boolean playerHasEnoughMoney(Player player, double amount) {
+
+      return false;
+    }
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        if (command.getName().equalsIgnoreCase("createhotel")) {
+            if (!(sender instanceof Player)) {
+                sender.sendMessage("このコマンドはプレイヤーから実行してください。");
+                return true;
+            }
+
+            Player player = (Player) sender;
+            // ホテル全体を選択してコマンドを実行する処理を記述
+
+            return true;
+        } else if (command.getName().equalsIgnoreCase("createroom")) {
+            if (!(sender instanceof Player)) {
+                sender.sendMessage("このコマンドはプレイヤーから実行してください。");
+                return true;
+            }
+
+            Player player = (Player) sender;
+            // ホテル内の個室の範囲を選択してコマンドを実行する処理を記述
+
+            return true;
+       }
+
+        return false;
+    }
 }

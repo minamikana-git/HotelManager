@@ -7,7 +7,7 @@ import org.bukkit.entity.Player;
 public class onCommand {
 
     /*
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("hotelcreate")) {
             if (!(sender instanceof Player)) {
                 sender.sendMessage("このコマンドはプレイヤーから実行してください。");
