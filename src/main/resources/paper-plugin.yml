@@ -1,6 +1,4 @@
 name: HotelManager
-version: '1.0'
-main: org.hotal.hotelmanagement.HotelManager
+version: '${project.version}'
+main: work.utakatanet.hotelmanager.HotelManager
 api-version: 1.19
-load: STARTUP
-

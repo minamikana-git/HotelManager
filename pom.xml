@@ -6,7 +6,7 @@
 
     <groupId>work.utakatanet</groupId>
     <artifactId>HotelManager</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>HotelManager</name>
@@ -46,7 +46,7 @@
         </plugins>
         <resources>
             <resource>
-                <directory>../../../../resources</directory>
+                <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
         </resources>
@@ -98,3 +98,4 @@
         </dependency>
     </dependencies>
 </project>
+

@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -41,12 +42,15 @@ public class HotelManager extends JavaPlugin implements Listener {
         // チェックイン用GUIの初期化
         checkInGUI = Bukkit.createInventory(null, 9, "Check-In");
         // GUIにアイテムを追加するなどの初期化処理を行う
+        checkInGUI.setItem(0,new ItemStack(Material.DIAMOND));
+        checkInGUI.setItem(1,new ItemStack(Material.GOLD_INGOT));
 
         // チェックアウト用GUIの初期化
         checkOutGUI = Bukkit.createInventory(null, 9, "Check-Out");
         // GUIにアイテムを追加するなどの初期化処理を行う
+        checkOutGUI.setItem(0,new ItemStack(Material.IRON_INGOT));
+        checkOutGUI.setItem(1,new ItemStack(Material.COAL));
     }
-
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
@@ -78,7 +82,7 @@ public class HotelManager extends JavaPlugin implements Listener {
 
     private boolean playerHasEnoughMoney(Player player, double amount) {
 
-      return false;
+        return false;
     }
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -102,7 +106,7 @@ public class HotelManager extends JavaPlugin implements Listener {
             // ホテル内の個室の範囲を選択してコマンドを実行する処理を記述
 
             return true;
-       }
+        }
 
         return false;
     }
