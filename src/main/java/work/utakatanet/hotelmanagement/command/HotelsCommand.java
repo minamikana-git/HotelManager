@@ -1,14 +1,21 @@
 package work.utakatanet.hotelmanagement.command;
 
 import dev.jorel.commandapi.CommandAPICommand;
+import dev.jorel.commandapi.arguments.PlayerArgument;
 import dev.jorel.commandapi.arguments.StringArgument;
+import dev.jorel.commandapi.exceptions.WrapperCommandSyntaxException;
+import dev.jorel.commandapi.executors.CommandArguments;
+import dev.jorel.commandapi.executors.PlayerCommandExecutor;
+import org.bukkit.entity.Player;
 import work.utakatanet.hotelmanagement.util.Message;
+
+import java.util.Objects;
 
 public class HotelsCommand {
 
     public static void register() {
 
-        new CommandAPICommand("hotels")
+        new CommandAPICommand("hotels") // ここで /"hotels" が登録される
                 .withSubcommand(new CommandAPICommand("create")
                         .withArguments(new StringArgument("hotelName"))
                         .executesPlayer((player, args) -> { // /hotels create
@@ -47,12 +54,12 @@ public class HotelsCommand {
 
                         // /hotels hotel "remove" サブコマンド
                         .withSubcommand(new CommandAPICommand("remove")
-                            .executesPlayer((player, args) -> { // /hotels remove
-                                        if (args.args().length < 1) {
-                                            player.sendMessage(Message.prefix + "" + Message.errorNotEnoughArguments);
-                                            return;
-                                        }
-                            })
+                                .executesPlayer((player, args) -> { // /hotels remove
+                                    if (args.args().length < 1) {
+                                        player.sendMessage(Message.prefix + "" + Message.errorNotEnoughArguments);
+                                        return;
+                                    }
+                                })
                         )
 
                         // /hotels hotel "list" サブコマンド
@@ -68,22 +75,27 @@ public class HotelsCommand {
                         )
                         // /hotels hotel "info" サブコマンド
                         .withSubcommand(new CommandAPICommand("info")
-                                .executesPlayer((player, commandArguments) -> { // /hotels hotel info
-                                    if  (args.args().length < 1) {
+                                .executesPlayer((player, args) -> { // /hotels hotel info
+                                    if (args.args().length < 1) {
                                         player.sendMessage(Message.prefix + "" + Message.errorNotEnoughArguments);
                                         return;
                                     }
-                )
-                       // /hotels hotel "room create" サブコマンド
-                        .withSubcommand(new CommandAPICommand("list")
-                              .executesPlayer((player, commandArguments) -> { // /hotels hotel list
-                                  if  (args.args().length < 1) {
+                                })
+                        )
+                        // /hotels hotel "room create" サブコマンド
+                        .withSubcommand(new CommandAPICommand("room")
+                                .withSubcommand(new CommandAPICommand("create"))
+                                .executesPlayer((player, args) -> { // /hotels hotel room create
+                                    if (args.args().length < 1) {
                                         player.sendMessage(Message.prefix + "" + Message.errorNotEnoughArguments);
                                         return;
-                                  }
+                                    }
+                                })
+                        )
+                )
                 .register();
 
 
-
+    } // これは registerメソッドの閉じかっこ
 
 }
