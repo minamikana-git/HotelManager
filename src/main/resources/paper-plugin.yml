@@ -1,6 +1,6 @@
 name: HotelManager
 version: '1.0'
-main: work.utakatanet.hotelmanagement.HotelManager
+main: org.hotal.hotelmanagement.HotelManager
 api-version: 1.19
 load: STARTUP
 
