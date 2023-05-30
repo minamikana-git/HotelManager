@@ -3,10 +3,15 @@ package work.utakatanet.hotelmanager;
 import dev.jorel.commandapi.CommandAPI;
 import dev.jorel.commandapi.CommandAPIBukkitConfig;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Villager;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -15,6 +20,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 import work.utakatanet.hotelmanager.command.CommandHandler;
+
 
 public class HotelManager extends JavaPlugin implements Listener {
     private Inventory checkInGUI;
@@ -31,9 +37,43 @@ public class HotelManager extends JavaPlugin implements Listener {
         CommandAPI.onEnable();
         // コマンド登録
         CommandHandler.registerCommands();
+        spawnHotelNPC();{
     }
 
-    @Override
+
+        private void
+            World world = Bukkit.getWorld("ワールド名");  // ホテルが存在するワールドを指定してください
+            Location location = new Location(world, x, y, z);  // NPCを配置する座標を指定してください
+
+            // NPCの作成処理を記述
+            Entity entity = world.spawnEntity(location, EntityType.VILLAGER);  // 例として、村人（Villager）をNPCとして使用します
+            if (entity instanceof Villager) {
+                Villager npc = (Villager) entity;
+                npc.setCustomName("Hotel NPC");  // NPCの名前を設定してください
+                npc.setCustomNameVisible(true);  // NPCの名前を表示するかどうかを設定します
+
+                // その他のNPCの設定を行うことができます
+            }
+        }
+    }
+
+
+    private void spawnHotelNPC() {
+        World world = Bukkit.getWorld("world");  // ホテルが存在するワールドを指定してください
+        Location location = new Location(world, x, y, z);  // NPCを配置する座標を指定してください
+
+        // NPCの作成処理を記述
+        Entity entity = world.spawnEntity(location, EntityType.VILLAGER);  // 例として、村人（Villager）をNPCとして使用します
+        if (entity instanceof Villager) {
+            Villager npc = (Villager) entity;
+            npc.setCustomName("うたまろ");  // NPCの名前を設定してください
+            npc.setCustomNameVisible(true);  // NPCの名前を表示するかどうかを設定します
+
+            // その他のNPCの設定を行うことができます
+        }
+    }
+
+@Override
     public void onDisable() {
         // プラグインの停止処理
     }
@@ -55,7 +95,7 @@ public class HotelManager extends JavaPlugin implements Listener {
     public void onInventoryClick(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
         ItemStack clickedItem = event.getCurrentItem();
-
+        player.openInventory(checkInGUI); // チェックイン用GUIを開く
         if (event.getInventory().equals(checkInGUI)) {
             event.setCancelled(true); // GUI内でのアイテムの移動をキャンセル
 
@@ -66,6 +106,7 @@ public class HotelManager extends JavaPlugin implements Listener {
                     // 次の画面に進むための処理を記述
                 }
             }
+            player.openInventory(checkOutGUI); // チェックアウト用GUIを開く
         } else if (event.getInventory().equals(checkOutGUI)) {
             event.setCancelled(true); // GUI内でのアイテムの移動をキャンセル
 
