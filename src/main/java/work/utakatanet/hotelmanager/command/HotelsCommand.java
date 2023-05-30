@@ -9,6 +9,7 @@ import dev.jorel.commandapi.executors.PlayerCommandExecutor;
 import org.bukkit.entity.Player;
 import work.utakatanet.hotelmanager.util.Message;
 
+
 import java.util.Objects;
 
 public class HotelsCommand {

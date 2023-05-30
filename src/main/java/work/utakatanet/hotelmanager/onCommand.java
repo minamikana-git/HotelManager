@@ -59,6 +59,7 @@ public class onCommand {
                         if (args.length > 0 && args[0].equalsIgnoreCase("npc") && args[1].equalsIgnoreCase("create")) {
                             // エントランスのNPCを作成する処理
 
+
                         }
                     }
                     return true;
