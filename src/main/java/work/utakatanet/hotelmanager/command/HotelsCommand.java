@@ -30,7 +30,7 @@ public class HotelsCommand {
                             String hotelName = Message.nullToString(args.get(0));
 
                             // ホテル名が指定されていなければ
-                            if (hotelName.equals("")) {
+                            if (hotelName.length == 0;{
                                 Message.sendMessage(player, true, Message.errorIllegalArgument + "ホテル名を指定してください！");
                             }
 
